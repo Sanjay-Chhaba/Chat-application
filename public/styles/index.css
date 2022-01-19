@@ -97,8 +97,9 @@ div.chat-window{
 
 .container .chat-window .chats{
    
-    min-height: 65vh;
+    height: 65vh;
     padding: 20px;
+    overflow-y: auto;
 
 }
 
