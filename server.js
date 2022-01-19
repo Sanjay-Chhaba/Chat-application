@@ -29,6 +29,9 @@ io.on("connection",(socket)=>{
         io.emit("user-list",users);
 
     });
+    socket.on('message',(data)=>{
+        socket.broadcast.emit("message",{user: data.user,msg: data.msg});
+    });
 });
 
 
