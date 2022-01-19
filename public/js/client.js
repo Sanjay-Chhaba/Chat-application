@@ -5,7 +5,7 @@ var chats=document.querySelector(".chats");
 var users_list=document.querySelector(".users-list");
 var users_count=document.querySelector(".users-count");
 var msg_send=document.querySelector("#user-send");
-var user_msg=document.querySelector("#user_msg");
+var user_msg=document.querySelector("#user-msg");
 
 do{
     username=prompt("Enter your name: ");
@@ -27,6 +27,7 @@ function userJoinLeft(name,status){
     let content=`<p><b>${name}</b> ${status} the chat</p>`;
     div.innerHTML=content;
     chats.appendChild(div);
+    chats.scrollTop=chats.scrollHeight;
 
 }
 
@@ -71,5 +72,9 @@ function appendMessage(data,status){
     `;
     div.innerHTML=content;
     chats.appendChild(div);
+    chats.scrollTop=chats.scrollHeight;
 
 }
+socket.on('message',(data)=>{
+    appendMessage(data,'incoming');
+});
